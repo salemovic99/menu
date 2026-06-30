@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Beverages - Entrecôte Gazette</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Source+Serif+4:wght@400;600&amp;family=Archivo+Narrow:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "surface-container": "#f0eee7",
+                        "surface-variant": "#e5e2db",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-low": "#f6f3ec",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e2e2e2",
+                        "background": "#fcf9f2",
+                        "on-background": "#1c1c18",
+                        "secondary-fixed": "#ffdad4",
+                        "blood-red": "#bc0000",
+                        "paper-base": "#fcf9f2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-secondary-fixed-variant": "#930000",
+                        "inverse-primary": "#c6c6c6",
+                        "surface": "#fcf9f2",
+                        "inverse-on-surface": "#f3f0ea",
+                        "paper-dim": "#f1eee7",
+                        "on-error": "#ffffff",
+                        "ink-primary": "#1c1c18",
+                        "secondary": "#bc0000",
+                        "surface-container-highest": "#e5e2db",
+                        "surface-bright": "#fcf9f2",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#1b1b1b",
+                        "outline": "#7e7576",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#cfc4c5",
+                        "ink-muted": "#444748",
+                        "on-surface-variant": "#4c4546",
+                        "primary": "#000000",
+                        "surface-dim": "#dcdad3",
+                        "primary-fixed": "#e2e2e2",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#000000",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "on-surface": "#1c1c18",
+                        "surface-container-high": "#ebe8e1",
+                        "on-tertiary-container": "#848484",
+                        "surface-tint": "#5e5e5e",
+                        "on-primary-container": "#848484",
+                        "on-secondary-fixed": "#410000",
+                        "on-primary-fixed": "#1b1b1b",
+                        "inverse-surface": "#31312c",
+                        "primary-container": "#1b1b1b",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#e1281a",
+                        "on-primary-fixed-variant": "#474747"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "edge-margin": "32px",
+                        "rule-weight": "1px",
+                        "column-gap": "24px",
+                        "double-rule-gap": "4px",
+                        "stack-md": "16px",
+                        "stack-lg": "40px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "masthead": ["Playfair Display"],
+                        "body-md": ["\"Source Serif 4\""],
+                        "body-lg": ["\"Source Serif 4\""],
+                        "label-caps": ["Archivo Narrow"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "caption": ["\"Source Serif 4\""],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "masthead": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "body-md": ["17px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-lg": ["20px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "label-caps": ["14px", {"lineHeight": "20px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "caption": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .paper-texture {
+            background-color: #fcf9f2;
+            background-image: radial-gradient(#1c1c18 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            background-repeat: repeat;
+            opacity: 0.03;
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+        }
+        .double-rule {
+            position: relative;
+        }
+        .double-rule::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -6px;
+            height: 1px;
+            background-color: currentColor;
+        }
+        .torn-edge {
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 C 50 10 100 0 150 10 C 200 0 250 10 300 0 C 350 10 400 0 450 10 C 500 0 550 10 600 0 C 650 10 700 0 750 10 C 800 0 850 10 900 0 C 950 10 1000 0 L 1000 20 L 0 20 Z" fill="black"/></svg>');
+            mask-size: 100% 20px;
+            mask-repeat: no-repeat;
+            mask-position: bottom;
+        }
+    </style>
+</head>
+<body class="bg-paper-base text-ink-primary font-body-md min-h-screen">
+<div class="paper-texture"></div>
+<!-- Header Section -->
+<header class="flex flex-col items-center w-full pt-stack-md px-edge-margin bg-paper-base sticky top-0 z-40">
+<div class="w-full max-w-5xl border-b-[4px] border-primary pb-double-rule-gap mb-4 text-center">
+<div class="flex justify-between items-center font-label-caps text-label-caps tracking-[0.2em] mb-2 uppercase">
+<span>Est. 1930</span>
+
+</div>
+<img src="Entrecote logo.png" alt="Entrecôte Café de Paris" class="w-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto mx-auto mb-2"/>
+</div>
+<nav class="flex justify-center items-center gap-column-gap py-stack-sm w-full font-label-caps text-label-caps mb-6 border-b border-primary">
+<a class="text-ink-primary hover:text-blood-red transition-colors" href="#">LE MENU</a>
+<span class="text-outline-variant">|</span>
+<a class="text-ink-primary hover:text-blood-red transition-colors" href="#">HISTOIRE</a>
+
+</nav>
+</header>
+<!-- Category Ribbon -->
+<div class="w-full border-y border-primary bg-paper-dim flex justify-center items-center gap-column-gap py-stack-sm font-label-caps text-label-caps uppercase tracking-widest sticky top-[160px] z-30">
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-all px-4 py-2" href="#">Main Courses</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-all px-4 py-2" href="#">Entrées</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-all px-4 py-2" href="#">Sides</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-all px-4 py-2" href="#">Desserts</a>
+<a class="text-blood-red font-bold underline decoration-2 underline-offset-4 px-4 py-2" href="#">Beverages</a>
+</div>
+<!-- Main Content -->
+<main class="max-w-4xl mx-auto px-edge-margin py-stack-lg relative z-10">
+<!-- Section Header -->
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg uppercase border-b-rule-weight border-primary pb-double-rule-gap double-rule inline-block px-12">
+                BEVERAGES - LES BREUVAGES
+            </h2>
+<p class="font-caption text-caption italic mt-4 text-ink-muted">Carefully curated selections to complement the Café de Paris experience.</p>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-16 border-t border-primary pt-12">
+<!-- Espresso -->
+<div class="text-center group transition-transform duration-200 ease-in-out hover:scale-101">
+<div class="flex justify-center items-baseline gap-4 mb-1">
+<h3 class="font-headline-sm text-headline-sm uppercase">Espresso</h3>
+<span class="w-full border-b border-dotted border-outline-variant mb-1"></span>
+<span class="font-label-caps text-label-caps text-blood-red">15.00 SAR</span>
+</div>
+<p class="font-body-md text-body-md text-ink-muted italic mb-2">The pure essence of our dark roasted beans.</p>
+<div class="flex justify-center gap-4 text-xs font-label-caps text-ink-muted uppercase tracking-wider">
+<span>Caffeine: 65mg</span>
+<span>|</span>
+<span>5 min walk to café</span>
+</div>
+<div class="w-12 h-px bg-outline-variant mx-auto mt-6"></div>
+</div>
+<!-- Double Espresso -->
+<div class="text-center group transition-transform duration-200 ease-in-out hover:scale-101">
+<div class="flex justify-center items-baseline gap-4 mb-1">
+<h3 class="font-headline-sm text-headline-sm uppercase">Double Espresso</h3>
+<span class="w-full border-b border-dotted border-outline-variant mb-1"></span>
+<span class="font-label-caps text-label-caps text-blood-red">20.00 SAR</span>
+</div>
+<p class="font-body-md text-body-md text-ink-muted italic mb-2">Double the intensity for the true connoisseur.</p>
+<div class="flex justify-center gap-4 text-xs font-label-caps text-ink-muted uppercase tracking-wider">
+<span>Caffeine: 130mg</span>
+<span>|</span>
+<span>5 min walk to café</span>
+</div>
+<div class="w-12 h-px bg-outline-variant mx-auto mt-6"></div>
+</div>
+<!-- Macchiato -->
+<div class="text-center group transition-transform duration-200 ease-in-out hover:scale-101">
+<div class="flex justify-center items-baseline gap-4 mb-1">
+<h3 class="font-headline-sm text-headline-sm uppercase">Macchiato</h3>
+<span class="w-full border-b border-dotted border-outline-variant mb-1"></span>
+<span class="font-label-caps text-label-caps text-blood-red">18.00 SAR</span>
+</div>
+<p class="font-body-md text-body-md text-ink-muted italic mb-2">Espresso marked with a cloud of foam.</p>
+<div class="flex justify-center gap-4 text-xs font-label-caps text-ink-muted uppercase tracking-wider">
+<span>Caffeine: 65mg</span>
+<span>|</span>
+<span>7 min walk to café</span>
+</div>
+<div class="w-12 h-px bg-outline-variant mx-auto mt-6"></div>
+</div>
+<!-- Cappuccino -->
+<div class="text-center group transition-transform duration-200 ease-in-out hover:scale-101">
+<div class="flex justify-center items-baseline gap-4 mb-1">
+<h3 class="font-headline-sm text-headline-sm uppercase">Cappuccino</h3>
+<span class="w-full border-b border-dotted border-outline-variant mb-1"></span>
+<span class="font-label-caps text-label-caps text-blood-red">22.00 SAR</span>
+</div>
+<p class="font-body-md text-body-md text-ink-muted italic mb-2">Equal parts espresso, steamed milk, and froth.</p>
+<div class="flex justify-center gap-4 text-xs font-label-caps text-ink-muted uppercase tracking-wider">
+<span>Caffeine: 80mg</span>
+<span>|</span>
+<span>8 min walk to café</span>
+</div>
+<div class="w-12 h-px bg-outline-variant mx-auto mt-6"></div>
+</div>
+<!-- Americano -->
+<div class="text-center group transition-transform duration-200 ease-in-out hover:scale-101">
+<div class="flex justify-center items-baseline gap-4 mb-1">
+<h3 class="font-headline-sm text-headline-sm uppercase">Americano</h3>
+<span class="w-full border-b border-dotted border-outline-variant mb-1"></span>
+<span class="font-label-caps text-label-caps text-blood-red">18.00 SAR</span>
+</div>
+<p class="font-body-md text-body-md text-ink-muted italic mb-2">A smooth, long coffee with deep character.</p>
+<div class="flex justify-center gap-4 text-xs font-label-caps text-ink-muted uppercase tracking-wider">
+<span>Caffeine: 95mg</span>
+<span>|</span>
+<span>5 min walk to café</span>
+</div>
+<div class="w-12 h-px bg-outline-variant mx-auto mt-6"></div>
+</div>
+<!-- Turkish Coffee -->
+<div class="text-center group transition-transform duration-200 ease-in-out hover:scale-101">
+<div class="flex justify-center items-baseline gap-4 mb-1">
+<h3 class="font-headline-sm text-headline-sm uppercase">Turkish Coffee</h3>
+<span class="w-full border-b border-dotted border-outline-variant mb-1"></span>
+<span class="font-label-caps text-label-caps text-blood-red">20.00 SAR</span>
+</div>
+<p class="font-body-md text-body-md text-ink-muted italic mb-2">Finely ground, unfiltered, and aromatic.</p>
+<div class="flex justify-center gap-4 text-xs font-label-caps text-ink-muted uppercase tracking-wider">
+<span>Caffeine: 100mg</span>
+<span>|</span>
+<span>12 min walk to café</span>
+</div>
+<div class="w-12 h-px bg-outline-variant mx-auto mt-6"></div>
+</div>
+<!-- Cafe Latte -->
+<div class="text-center group transition-transform duration-200 ease-in-out hover:scale-101">
+<div class="flex justify-center items-baseline gap-4 mb-1">
+<h3 class="font-headline-sm text-headline-sm uppercase">Cafe Latte</h3>
+<span class="w-full border-b border-dotted border-outline-variant mb-1"></span>
+<span class="font-label-caps text-label-caps text-blood-red">22.00 SAR</span>
+</div>
+<p class="font-body-md text-body-md text-ink-muted italic mb-2">Espresso combined with silky steamed milk.</p>
+<div class="flex justify-center gap-4 text-xs font-label-caps text-ink-muted uppercase tracking-wider">
+<span>Caffeine: 80mg</span>
+<span>|</span>
+<span>10 min walk to café</span>
+</div>
+<div class="w-12 h-px bg-outline-variant mx-auto mt-6"></div>
+</div>
+<!-- Tea -->
+<div class="text-center group transition-transform duration-200 ease-in-out hover:scale-101">
+<div class="flex justify-center items-baseline gap-4 mb-1">
+<h3 class="font-headline-sm text-headline-sm uppercase">Tea Selection</h3>
+<span class="w-full border-b border-dotted border-outline-variant mb-1"></span>
+<span class="font-label-caps text-label-caps text-blood-red">15.00 SAR</span>
+</div>
+<p class="font-body-md text-body-md text-ink-muted italic mb-2">Finest loose leaf infusions from around the world.</p>
+<div class="flex justify-center gap-4 text-xs font-label-caps text-ink-muted uppercase tracking-wider">
+<span>Caffeine: 30mg</span>
+<span>|</span>
+<span>4 min walk to café</span>
+</div>
+<div class="w-12 h-px bg-outline-variant mx-auto mt-6"></div>
+</div>
+</div>
+<!-- Editorial Quote -->
+<div class="mt-stack-lg p-8 border border-primary bg-paper-dim halftone-overlay text-center relative">
+<span class="material-symbols-outlined absolute -top-4 left-1/2 -translate-x-1/2 bg-paper-base px-2 text-blood-red">coffee</span>
+<p class="font-body-lg text-body-lg italic text-ink-primary max-w-2xl mx-auto">
+                "Coffee is a way of stealing time that should by rights belong to your older self."
+            </p>
+<p class="font-label-caps text-label-caps mt-4 uppercase tracking-widest">— The Gazette Editorial Board</p>
+</div>
+</main>
+<!-- Footer -->
+<!-- ============ FOOTER ============ -->
+<footer class="w-full bg-surface-container-low border-t-4 border-double border-primary mt-stack-lg relative overflow-hidden">
+<div class="absolute inset-0 halftone-overlay pointer-events-none"></div>
+<div class="relative z-10 max-w-full px-edge-margin py-stack-lg flex flex-col items-center text-center">
+<!-- Masthead mark -->
+<span class="font-label-caps text-label-caps text-secondary tracking-[0.3em] uppercase mb-2">Est. 1930 — Genève</span>
+<img src="Entrecote logo.png" alt="Entrecôte Café de Paris" class="w-auto max-w-[160px] h-auto mx-auto"/>
+<div class="w-16 border-b-2 border-secondary my-4"></div>
+<p class="font-body-md text-body-md italic text-on-surface-variant max-w-md">
+        One plate. One sauce. Ninety-five years of secret.
+      </p>
+<!-- Locations -->
+<div class="mt-stack-lg w-full max-w-3xl flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-label-caps text-[11px] tracking-widest uppercase text-primary">
+<span>Al Faisaliah Tower</span>
+<span class="text-secondary">◆</span>
+<span>Lumiere Centre</span>
+<span class="text-secondary">◆</span>
+<span>Laysen Valley</span>
+<span class="text-secondary">◆</span>
+<span>AlUla</span>
+</div>
+<!-- Fine print -->
+<div class="mt-stack-md pt-stack-md w-full max-w-3xl border-t border-primary/20 flex flex-col sm:flex-row items-center justify-center gap-x-3 gap-y-1 font-caption text-[11px] text-on-surface-variant uppercase tracking-widest">
+<span>Halal Certified</span>
+<span class="hidden sm:inline text-primary/30">|</span>
+<span>Prices incl. 15% VAT</span>
+<span class="hidden sm:inline text-primary/30">|</span>
+<span>© 1930 Entrecôte Café de Paris</span>
+</div>
+</div>
+<div class="w-full h-6 halftone-overlay border-t border-primary/10"></div>
+</footer>
+<script>
+        // Smooth hover interactions for menu items
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.querySelector('.text-blood-red').classList.add('scale-110');
+            });
+            item.addEventListener('mouseleave', () => {
+                item.querySelector('.text-blood-red').classList.remove('scale-110');
+            });
+        });
+    </script>
+</body></html>
