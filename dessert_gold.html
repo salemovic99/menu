@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DESSERTS - ENTRECÔTE GAZETTE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Archivo+Narrow:wght@600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "secondary-fixed-dim": "#c9a46a", "surface-container": "#f3f0e9",
+                    "surface-variant": "#e8e5de", "primary-fixed-dim": "#c6c6c6",
+                    "on-secondary-container": "#ffffff", "surface-container-low": "#f7f6f2",
+                    "error": "#ba1a1a", "tertiary-fixed": "#e2e2e2",
+                    "background": "#ffffff", "on-background": "#0a0a08",
+                    "secondary-fixed": "#f0dfc0", "blood-red": "#b48e56",
+                    "paper-base": "#ffffff", "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#474747", "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c6", "on-secondary-fixed-variant": "#7a5e28",
+                    "inverse-primary": "#c6c6c6", "surface": "#ffffff",
+                    "inverse-on-surface": "#f5f2eb", "paper-dim": "#f5f3ee",
+                    "on-error": "#ffffff", "ink-primary": "#0a0a08",
+                    "secondary": "#b48e56", "surface-container-highest": "#e5e2db",
+                    "surface-bright": "#ffffff", "on-tertiary": "#ffffff",
+                    "tertiary-container": "#1b1b1b", "outline": "#7a7870",
+                    "error-container": "#ffdad6", "outline-variant": "#d4d0c8",
+                    "ink-muted": "#4a4a48", "on-surface-variant": "#4a4a48",
+                    "primary": "#000000", "surface-dim": "#e0ddd6",
+                    "primary-fixed": "#e2e2e2", "on-error-container": "#93000a",
+                    "tertiary": "#000000", "on-tertiary-fixed": "#1b1b1b",
+                    "on-surface": "#0a0a08", "surface-container-high": "#edeae3",
+                    "on-tertiary-container": "#848484", "surface-tint": "#5e5e5e",
+                    "on-primary-container": "#848484", "on-secondary-fixed": "#2a1a00",
+                    "on-primary-fixed": "#1b1b1b", "inverse-surface": "#31312c",
+                    "primary-container": "#1b1b1b", "on-primary": "#ffffff",
+                    "secondary-container": "#b48e56", "on-primary-fixed-variant": "#474747"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"
+                },
+                "spacing": {
+                    "edge-margin": "32px", "rule-weight": "1px", "column-gap": "24px",
+                    "double-rule-gap": "4px", "stack-md": "16px", "stack-lg": "40px", "stack-sm": "8px"
+                },
+                "fontFamily": {
+                    "masthead": ["Playfair Display"], "body-md": ["\"Source Serif 4\""],
+                    "body-lg": ["\"Source Serif 4\""], "label-caps": ["Archivo Narrow"],
+                    "headline-sm": ["Playfair Display"], "headline-lg-mobile": ["Playfair Display"],
+                    "caption": ["\"Source Serif 4\""], "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"]
+                },
+                "fontSize": {
+                    "masthead": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "body-md": ["17px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-lg": ["20px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "label-caps": ["14px", {"lineHeight": "20px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "caption": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .halftone-overlay {
+        background-image: radial-gradient(rgba(0,0,0,0.05) 0.5px, transparent 0.5px);
+        background-size: 3px 3px;
+    }
+    .double-rule { border-bottom-width: 4px; border-bottom-style: double; }
+    .paper-texture {
+        background-color: #ffffff;
+        background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* ── Collapsing header ── */
+    #site-header { transition: padding 0.3s ease; }
+    #header-meta-bar {
+        overflow: hidden; max-height: 40px; opacity: 1;
+        transition: max-height 0.35s ease, opacity 0.25s ease;
+    }
+    #header-logo { transition: max-width 0.35s ease; }
+    .header-scrolled { padding-top: 8px !important; }
+    .header-scrolled #header-meta-bar { max-height: 0; opacity: 0; }
+    .header-scrolled #header-logo { max-width: 160px !important; }
+
+    /* ── Bottom nav safe-area ── */
+    #bottom-nav { padding-bottom: env(safe-area-inset-bottom, 0px); }
+</style>
+</head>
+<body class="paper-texture min-h-screen text-ink-primary selection:bg-blood-red selection:text-white font-body-md">
+
+<!-- ── AR / EN toggle ── -->
+<a href="#"
+   class="fixed top-4 right-4 z-50 flex items-center gap-1 bg-paper-base border border-primary/30 rounded-full px-3 py-1.5 shadow-sm font-label-caps text-[11px] tracking-widest uppercase text-on-surface-variant hover:text-blood-red hover:border-blood-red transition-colors">
+  <span class="text-primary/30">EN</span>
+  <span class="text-primary/20 mx-0.5">|</span>
+  <span>AR</span>
+</a>
+
+<!-- ── Header (sticky + collapsing) ── -->
+<header id="site-header" class="flex flex-col items-center w-full pt-stack-md px-edge-margin bg-paper-base sticky top-0 z-40">
+
+  <!-- Meta bar -->
+  <div id="header-meta-bar" class="w-full max-w-5xl flex justify-between items-center font-label-caps text-label-caps tracking-widest text-ink-muted">
+    <span>Est. 1930</span>
+    <span>2026</span>
+  </div>
+
+  <div class="w-full max-w-5xl flex flex-col items-center border-b-[4px] border-double border-primary pb-double-rule-gap mb-3">
+    <img id="header-logo" src="Entrecote logo.png" alt="Entrecôte Café de Paris"
+         class="w-auto max-w-[200px] sm:max-w-sm md:max-w-md lg:max-w-lg h-auto mx-auto transition-all duration-300 mt-1"/>
+    <!-- Top nav -->
+    <nav class="flex gap-column-gap py-3">
+      <a class="font-label-caps text-label-caps text-ink-primary hover:text-blood-red transition-colors" href="#">LE MENU</a>
+      <span class="text-outline-variant">|</span>
+      <a class="font-label-caps text-label-caps text-ink-primary hover:text-blood-red transition-colors" href="#">HISTOIRE</a>
+    </nav>
+  </div>
+
+  <!-- Category ribbon — desktop only -->
+  <div class="hidden md:flex justify-center items-center gap-column-gap py-stack-sm w-full bg-paper-dim border-y border-primary font-label-caps text-label-caps uppercase tracking-widest">
+    <a class="text-on-surface-variant hover:text-blood-red transition-colors px-4 py-2" href="main_course_gold.html">Main Courses</a>
+    <a class="text-on-surface-variant hover:text-blood-red transition-colors px-4 py-2" href="#">Entrées</a>
+    <a class="text-on-surface-variant hover:text-blood-red transition-colors px-4 py-2" href="#">Sides</a>
+    <a class="text-blood-red font-bold underline decoration-2 underline-offset-4 px-4 py-2" href="dessert_gold.html">Desserts</a>
+    <a class="text-on-surface-variant hover:text-blood-red transition-colors px-4 py-2" href="BEVERAGES_gold.html">Beverages</a>
+  </div>
+
+</header>
+
+<!-- ── Main Content ── -->
+<main class="max-w-3xl mx-auto px-edge-margin py-stack-lg pb-28 md:pb-stack-lg">
+
+  <!-- Section Header -->
+  <div class="text-center mb-12 md:mb-16">
+    <div class="inline-block border-y-2 border-primary py-2 px-6 md:px-8">
+      <h2 class="font-headline-lg text-2xl md:text-headline-lg uppercase tracking-tight">DESSERTS — LES DOUCEURS</h2>
+    </div>
+    <p class="font-body-md text-body-md italic mt-4 text-ink-muted">A collection of classic Parisian finishes, crafted with precision and prestige.</p>
+  </div>
+
+  <!-- Menu List -->
+  <div class="space-y-10 md:space-y-12">
+
+    <!-- Profiteroles -->
+    <div class="group text-center">
+      <div class="flex flex-col items-center">
+        <h3 class="font-headline-md text-2xl md:text-headline-md uppercase mb-1">Profiteroles</h3>
+        <span class="font-label-caps text-label-caps text-blood-red font-bold text-xl mb-3">35.00 SAR</span>
+        <p class="max-w-md font-body-md text-body-md italic text-ink-muted mb-4 text-[15px] md:text-body-md">
+          Hand-crafted choux pastry filled with vanilla bean gelato and draped in signature warm chocolate ganache.
+        </p>
+        <div class="grid grid-cols-2 gap-4 w-48 border-t border-outline-variant pt-3 mx-auto">
+          <div class="text-center">
+            <span class="block font-label-caps text-[10px] uppercase tracking-tighter text-ink-muted">CALORIES</span>
+            <span class="font-label-caps text-label-caps font-bold">540 KCAL</span>
+          </div>
+          <div class="text-center">
+            <span class="block font-label-caps text-[10px] uppercase tracking-tighter text-ink-muted">WALK REQ.</span>
+            <span class="font-label-caps text-label-caps font-bold">110 MIN</span>
+          </div>
+        </div>
+      </div>
+      <div class="w-16 h-px bg-primary mx-auto mt-10 md:mt-12 opacity-30"></div>
+    </div>
+
+    <!-- Tiramisu -->
+    <div class="group text-center">
+      <div class="flex flex-col items-center">
+        <h3 class="font-headline-md text-2xl md:text-headline-md uppercase mb-1">Tiramisu</h3>
+        <span class="font-label-caps text-label-caps text-blood-red font-bold text-xl mb-3">30.00 SAR</span>
+        <p class="max-w-md font-body-md text-body-md italic text-ink-muted mb-4 text-[15px] md:text-body-md">
+          Layers of espresso-soaked savoiardi and whipped mascarpone, dusted with premium Dutch cocoa.
+        </p>
+        <div class="grid grid-cols-2 gap-4 w-48 border-t border-outline-variant pt-3 mx-auto">
+          <div class="text-center">
+            <span class="block font-label-caps text-[10px] uppercase tracking-tighter text-ink-muted">CALORIES</span>
+            <span class="font-label-caps text-label-caps font-bold">420 KCAL</span>
+          </div>
+          <div class="text-center">
+            <span class="block font-label-caps text-[10px] uppercase tracking-tighter text-ink-muted">WALK REQ.</span>
+            <span class="font-label-caps text-label-caps font-bold">85 MIN</span>
+          </div>
+        </div>
+      </div>
+      <div class="w-16 h-px bg-primary mx-auto mt-10 md:mt-12 opacity-30"></div>
+    </div>
+
+    <!-- Creme Brulee -->
+    <div class="group text-center">
+      <div class="flex flex-col items-center">
+        <h3 class="font-headline-md text-2xl md:text-headline-md uppercase mb-1">Creme Brulee</h3>
+        <span class="font-label-caps text-label-caps text-blood-red font-bold text-xl mb-3">28.00 SAR</span>
+        <p class="max-w-md font-body-md text-body-md italic text-ink-muted mb-4 text-[15px] md:text-body-md">
+          Velvety vanilla custard finished with a shatter-thin caramelized sugar crust.
+        </p>
+        <div class="grid grid-cols-2 gap-4 w-48 border-t border-outline-variant pt-3 mx-auto">
+          <div class="text-center">
+            <span class="block font-label-caps text-[10px] uppercase tracking-tighter text-ink-muted">CALORIES</span>
+            <span class="font-label-caps text-label-caps font-bold">380 KCAL</span>
+          </div>
+          <div class="text-center">
+            <span class="block font-label-caps text-[10px] uppercase tracking-tighter text-ink-muted">WALK REQ.</span>
+            <span class="font-label-caps text-label-caps font-bold">75 MIN</span>
+          </div>
+        </div>
+      </div>
+      <div class="w-16 h-px bg-primary mx-auto mt-10 md:mt-12 opacity-30"></div>
+    </div>
+
+    <!-- Baked Italian Cheesecake -->
+    <div class="group text-center">
+      <div class="flex flex-col items-center">
+        <h3 class="font-headline-md text-2xl md:text-headline-md uppercase mb-1">Baked Italian Cheesecake</h3>
+        <span class="font-label-caps text-label-caps text-blood-red font-bold text-xl mb-3">32.00 SAR</span>
+        <p class="max-w-md font-body-md text-body-md italic text-ink-muted mb-4 text-[15px] md:text-body-md">
+          Ricotta-style cheesecake with a subtle citrus zest, served with a berry coulis.
+        </p>
+        <div class="grid grid-cols-2 gap-4 w-48 border-t border-outline-variant pt-3 mx-auto">
+          <div class="text-center">
+            <span class="block font-label-caps text-[10px] uppercase tracking-tighter text-ink-muted">CALORIES</span>
+            <span class="font-label-caps text-label-caps font-bold">460 KCAL</span>
+          </div>
+          <div class="text-center">
+            <span class="block font-label-caps text-[10px] uppercase tracking-tighter text-ink-muted">WALK REQ.</span>
+            <span class="font-label-caps text-label-caps font-bold">95 MIN</span>
+          </div>
+        </div>
+      </div>
+      <div class="w-16 h-px bg-primary mx-auto mt-10 md:mt-12 opacity-30"></div>
+    </div>
+
+    <!-- Chocolate Fondant -->
+    <div class="group text-center">
+      <div class="flex flex-col items-center">
+        <h3 class="font-headline-md text-2xl md:text-headline-md uppercase mb-1">Chocolate Fondant</h3>
+        <span class="font-label-caps text-label-caps text-blood-red font-bold text-xl mb-3">38.00 SAR</span>
+        <p class="max-w-md font-body-md text-body-md italic text-ink-muted mb-4 text-[15px] md:text-body-md">
+          Molten dark chocolate cake, warm and oozing, paired with a scoop of Madagascar vanilla cream.
+        </p>
+        <div class="grid grid-cols-2 gap-4 w-48 border-t border-outline-variant pt-3 mx-auto">
+          <div class="text-center">
+            <span class="block font-label-caps text-[10px] uppercase tracking-tighter text-ink-muted">CALORIES</span>
+            <span class="font-label-caps text-label-caps font-bold">610 KCAL</span>
+          </div>
+          <div class="text-center">
+            <span class="block font-label-caps text-[10px] uppercase tracking-tighter text-ink-muted">WALK REQ.</span>
+            <span class="font-label-caps text-label-caps font-bold">125 MIN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Editorial Quote -->
+  <div class="mt-16 md:mt-20 p-8 border border-primary halftone-overlay relative">
+    <span class="material-symbols-outlined absolute -top-4 left-1/2 -translate-x-1/2 bg-paper-base px-2 text-primary"
+          style="font-variation-settings: 'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24">format_quote</span>
+    <p class="font-body-lg text-body-lg text-center italic text-ink-muted">
+      "A meal without dessert is like a day without sunshine, or a Gazette without its headlines."
+    </p>
+    <p class="font-label-caps text-label-caps text-center mt-4 tracking-widest text-primary">— LE CHEF DE PATISSERIE</p>
+  </div>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer class="w-full bg-surface-container-low border-t-4 border-double border-primary mt-stack-lg relative overflow-hidden mb-16 md:mb-0">
+  <div class="absolute inset-0 halftone-overlay pointer-events-none"></div>
+  <div class="relative z-10 max-w-full px-edge-margin py-stack-lg flex flex-col items-center text-center">
+    <span class="font-label-caps text-label-caps text-secondary tracking-[0.3em] uppercase mb-2">Est. 1930 — Genève</span>
+    <img src="Entrecote logo.png" alt="Entrecôte Café de Paris" class="w-auto max-w-[160px] h-auto mx-auto"/>
+    <div class="w-16 border-b-2 border-secondary my-4"></div>
+    <p class="font-body-md text-body-md italic text-on-surface-variant max-w-md">
+      One plate. One sauce. Ninety-five years of secret.
+    </p>
+    <div class="mt-stack-lg w-full max-w-3xl flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-label-caps text-[11px] tracking-widest uppercase text-primary">
+      <span>Al Faisaliah Tower</span>
+      <span class="text-secondary">◆</span>
+      <span>Lumiere Centre</span>
+      <span class="text-secondary">◆</span>
+      <span>Laysen Valley</span>
+      <span class="text-secondary">◆</span>
+      <span>AlUla</span>
+    </div>
+    <div class="mt-stack-md pt-stack-md w-full max-w-3xl border-t border-primary/20 flex flex-col sm:flex-row items-center justify-center gap-x-3 gap-y-1 font-caption text-[11px] text-on-surface-variant uppercase tracking-widest">
+      <span>Halal Certified</span>
+      <span class="hidden sm:inline text-primary/30">|</span>
+      <span>Prices incl. 15% VAT</span>
+      <span class="hidden sm:inline text-primary/30">|</span>
+      <span>© 1930 Entrecôte Café de Paris</span>
+    </div>
+  </div>
+  <div class="w-full h-6 halftone-overlay border-t border-primary/10"></div>
+</footer>
+
+<!-- ── Bottom tab bar (mobile only) ── -->
+<nav id="bottom-nav"
+     class="fixed bottom-0 left-0 right-0 z-50 flex md:hidden bg-paper-base border-t-2 border-double border-primary">
+  <a href="main_course_gold.html"
+     class="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-on-surface-variant hover:text-blood-red transition-colors">
+    <span class="material-symbols-outlined text-[22px]">restaurant</span>
+    <span class="font-label-caps text-[9px] tracking-wider uppercase">Mains</span>
+  </a>
+  <a href="#"
+     class="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-on-surface-variant hover:text-blood-red transition-colors">
+    <span class="material-symbols-outlined text-[22px]">lunch_dining</span>
+    <span class="font-label-caps text-[9px] tracking-wider uppercase">Entrées</span>
+  </a>
+  <a href="#"
+     class="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-on-surface-variant hover:text-blood-red transition-colors">
+    <span class="material-symbols-outlined text-[22px]">rice_bowl</span>
+    <span class="font-label-caps text-[9px] tracking-wider uppercase">Sides</span>
+  </a>
+  <a href="dessert_gold.html"
+     class="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-blood-red">
+    <span class="material-symbols-outlined text-[22px]" style="font-variation-settings:'FILL' 1,'wght' 400">cake</span>
+    <span class="font-label-caps text-[9px] tracking-wider uppercase font-bold">Desserts</span>
+  </a>
+  <a href="BEVERAGES_gold.html"
+     class="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-on-surface-variant hover:text-blood-red transition-colors">
+    <span class="material-symbols-outlined text-[22px]">local_cafe</span>
+    <span class="font-label-caps text-[9px] tracking-wider uppercase">Drinks</span>
+  </a>
+</nav>
+
+<script>
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('header-scrolled', window.scrollY > 72);
+  }, { passive: true });
+
+  document.querySelectorAll('button, a').forEach(el => {
+    el.addEventListener('mousedown', () => el.classList.add('scale-95'));
+    el.addEventListener('mouseup',   () => el.classList.remove('scale-95'));
+    el.addEventListener('mouseleave',() => el.classList.remove('scale-95'));
+  });
+</script>
+</body></html>
