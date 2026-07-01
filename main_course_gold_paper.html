@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Entrecôte Gazette - Traditional Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Archivo+Narrow:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60;400;600&display=swap" rel="stylesheet"/>
+<style>
+    .halftone-overlay {
+        background-image: radial-gradient(#000000 0.5px, transparent 0.5px);
+        background-size: 3px 3px;
+    }
+    .double-rule-top  { border-top: 3px double #000000; }
+    .double-rule-bottom { border-bottom: 3px double #000000; }
+    .paper-texture {
+        background-color: #f7eed8;
+        background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .menu-ornament::before, .menu-ornament::after {
+        content: "◆";
+        font-size: 0.6rem;
+        margin: 0 1rem;
+        vertical-align: middle;
+        opacity: 0.5;
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* ── Collapsing header ── */
+    #site-header { transition: padding 0.3s ease; }
+    #header-meta-bar {
+        overflow: hidden;
+        max-height: 40px;
+        opacity: 1;
+        transition: max-height 0.35s ease, opacity 0.25s ease;
+    }
+    #header-subtitle {
+        overflow: hidden;
+        max-height: 32px;
+        opacity: 1;
+        margin-top: 0.5rem;
+        transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.35s ease;
+    }
+    #header-logo {
+        transition: max-width 0.35s ease;
+    }
+    .header-scrolled { padding-top: 8px !important; }
+    .header-scrolled #header-meta-bar { max-height: 0; opacity: 0; }
+    .header-scrolled #header-subtitle { max-height: 0; opacity: 0; margin-top: 0; }
+    .header-scrolled #header-logo { max-width: 160px !important; }
+
+    /* ── Bottom tab bar safe-area ── */
+    #bottom-nav {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    /* ── Gold shimmer on accent elements ── */
+    .gold-accent {
+        background: linear-gradient(135deg, #b48e56 0%, #d4ae74 50%, #b48e56 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+</style>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "background": "#f7eed8",
+                    "on-primary-container": "#6b6b6b",
+                    "tertiary-fixed": "#e8e5e0",
+                    "on-background": "#0a0a08",
+                    "secondary-fixed-dim": "#c9a46a",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#0a0a08",
+                    "inverse-surface": "#2a2a28",
+                    "surface-variant": "#e8e5de",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#5f5e5e",
+                    "inverse-primary": "#c8c6c5",
+                    "on-tertiary-fixed-variant": "#484645",
+                    "surface-container-low": "#f7f6f2",
+                    "surface-dim": "#e0ddd6",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#868382",
+                    "on-secondary-fixed": "#2a1a00",
+                    "outline-variant": "#d4d0c8",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-secondary-fixed-variant": "#7a5e28",
+                    "tertiary-fixed-dim": "#cac6c4",
+                    "on-tertiary-fixed": "#1c1b1a",
+                    "surface-container-high": "#edeae3",
+                    "primary": "#000000",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#e5e2e1",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#b48e56",
+                    "surface-bright": "#f7eed8",
+                    "on-secondary-container": "#ffffff",
+                    "inverse-on-surface": "#f5f2eb",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#474746",
+                    "tertiary-container": "#1c1b1a",
+                    "primary-container": "#1c1b1b",
+                    "secondary": "#b48e56",
+                    "surface-container": "#f3f0e9",
+                    "tertiary": "#000000",
+                    "on-surface-variant": "#4a4a48",
+                    "surface": "#f7eed8",
+                    "outline": "#7a7870",
+                    "surface-container-highest": "#e5e2db",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#f0dfc0"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+                },
+                "spacing": {
+                    "stack-sm": "8px",
+                    "edge-margin": "32px",
+                    "column-gap": "24px",
+                    "rule-weight": "1px",
+                    "stack-md": "16px",
+                    "double-rule-gap": "4px",
+                    "stack-lg": "40px"
+                },
+                "fontFamily": {
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-lg": ["Source Serif 4"],
+                    "label-caps": ["Archivo Narrow"],
+                    "headline-sm": ["Playfair Display"],
+                    "caption": ["Source Serif 4"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "masthead": ["Playfair Display"],
+                    "body-md": ["Source Serif 4"]
+                },
+                "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["20px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "label-caps": ["14px", {"lineHeight": "20px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "caption": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "masthead": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "body-md": ["17px", {"lineHeight": "28px", "fontWeight": "400"}]
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body class="paper-texture bg-background text-on-surface font-body-md selection:bg-secondary selection:text-white min-h-screen">
+
+<!-- ── AR / EN language toggle (floating) ── -->
+<a href="main_course_ar.html"
+   class="fixed top-4 right-4 z-50 flex items-center gap-1 bg-background border border-primary/30 rounded-full px-3 py-1.5 shadow-sm font-label-caps text-[11px] tracking-widest uppercase text-on-surface-variant hover:text-secondary hover:border-secondary transition-colors">
+  <span class="text-primary/30">EN</span>
+  <span class="text-primary/20 mx-0.5">|</span>
+  <span>AR</span>
+</a>
+
+<!-- ── Header (sticky + collapsing) ── -->
+<header id="site-header" class="w-full px-edge-margin pt-stack-lg max-w-full flex flex-col items-center sticky top-0 z-40 bg-background">
+
+  <!-- Meta bar: hides on scroll -->
+  <div id="header-meta-bar" class="w-full flex justify-between items-end border-b border-primary pb-2 mb-1">
+    <span class="font-label-caps text-label-caps tracking-widest text-primary uppercase">Est. 1930</span>
+    <span class="font-label-caps text-label-caps tracking-widest text-primary uppercase">2026</span>
+  </div>
+
+  <!-- Logo + subtitle -->
+  <div class="py-3 w-full flex flex-col items-center border-b-4 border-double border-primary">
+    <img id="header-logo" src="Entrecote logo.png" alt="Entrecôte Café de Paris"
+         class="w-auto max-w-[200px] sm:max-w-sm md:max-w-md lg:max-w-lg h-auto mx-auto transition-all duration-300"/>
+    
+  </div>
+
+  <!-- Top nav: LE MENU / HISTOIRE -->
+  <nav class="w-full flex justify-center gap-column-gap py-3 border-primary">
+    <a class="text-secondary font-bold border-b-2 border-secondary font-label-caps text-label-caps tracking-widest active:scale-95 transition-all" href="#">LE MENU</a>
+    <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors" href="#">HISTOIRE</a>
+  </nav>
+
+  <div class="w-full border-b border-primary"></div>
+
+  <!-- Category ribbon — desktop only -->
+  <div class="hidden md:flex w-full justify-center border-b-4 border-double border-primary py-2 bg-surface-container-low">
+    <div class="flex items-center gap-4 font-label-caps text-[11px] tracking-widest">
+      <a class="text-secondary font-bold" href="main_course_gold.html">MAIN COURSES</a>
+      <span class="text-primary/20">|</span>
+      <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">ENTRÉES</a>
+      <span class="text-primary/20">|</span>
+      <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">SIDES</a>
+      <span class="text-primary/20">|</span>
+      <a class="text-on-surface-variant hover:text-secondary transition-colors" href="dessert.html">DESSERTS</a>
+      <span class="text-primary/20">|</span>
+      <a class="text-on-surface-variant hover:text-secondary transition-colors" href="BEVERAGES.html">BEVERAGES</a>
+    </div>
+  </div>
+
+</header>
+
+<!-- ── Main content ── -->
+<main class="max-w-[1000px] mx-auto px-edge-margin py-stack-lg text-center pb-28 md:pb-stack-lg">
+
+  <!-- Section Header -->
+  <div class="mb-10 md:mb-12">
+    <h2 class="font-headline-lg text-[clamp(1.4rem,6vw,3rem)] md:text-headline-lg uppercase tracking-[0.04em] sm:tracking-[0.07em] md:tracking-[0.1em] mb-4 menu-ornament w-full block">Main Courses</h2>
+    <div class="flex items-center justify-center gap-4 mb-8">
+      <div class="h-px flex-1 bg-secondary/30"></div>
+      <span class="font-label-caps text-label-caps italic tracking-widest uppercase text-secondary">La Pièce de Résistance</span>
+      <div class="h-px flex-1 bg-secondary/30"></div>
+    </div>
+  </div>
+
+  <!-- Menu Items -->
+  <div class="space-y-10 md:space-y-16 max-w-2xl mx-auto">
+
+    <!-- Item 1 -->
+    <article class="group">
+      <div class="flex flex-col items-center mb-2">
+        <h3 class="font-headline-sm text-xl md:text-2xl uppercase mb-1">Tenderloin Black Angus</h3>
+        <span class="font-label-caps font-bold text-secondary text-xl md:text-lg">390.00 SAR</span>
+      </div>
+      <p class="font-body-md text-on-surface-variant leading-relaxed italic mx-auto max-w-lg mb-4 text-[15px] md:text-body-md">
+        A premium cut of tenderloin from the Black Angus breed, renowned for producing the finest meats with a distinct flavor and exceptionally smooth texture.
+      </p>
+      <div class="flex justify-center items-center gap-4 md:gap-6 text-[11px] font-label-caps text-on-surface-variant uppercase tracking-widest border-t border-dotted border-secondary/30 pt-4 w-fit mx-auto">
+        <span>880 Cal</span>
+        <span class="opacity-30">/</span>
+        <span>Pro 45g</span>
+        <span class="opacity-30">/</span>
+        <span>Fat 75g</span>
+      </div>
+    </article>
+
+    <!-- Item 2 -->
+    <article class="group">
+      <div class="flex flex-col items-center mb-2">
+        <h3 class="font-headline-sm text-xl md:text-2xl uppercase mb-1">Striploin Black Angus</h3>
+        <span class="font-label-caps font-bold text-secondary text-xl md:text-lg">235.00 SAR</span>
+      </div>
+      <p class="font-body-md text-on-surface-variant leading-relaxed italic mx-auto max-w-lg mb-4 text-[15px] md:text-body-md">
+        A hand-selected Black Angus striploin, offering deep beefy flavor with perfectly balanced tenderness and fat content.
+      </p>
+      <div class="flex justify-center items-center gap-4 md:gap-6 text-[11px] font-label-caps text-on-surface-variant uppercase tracking-widest border-t border-dotted border-secondary/30 pt-4 w-fit mx-auto">
+        <span>580 Cal</span>
+        <span class="opacity-30">/</span>
+        <span>Pro 47g</span>
+        <span class="opacity-30">/</span>
+        <span>Fat 37g</span>
+      </div>
+    </article>
+
+    <!-- Item 3 -->
+    <article class="group">
+      <div class="flex flex-col items-center mb-2">
+        <h3 class="font-headline-sm text-xl md:text-2xl uppercase mb-1">Australian Striploin Fillet</h3>
+        <span class="font-label-caps font-bold text-secondary text-xl md:text-lg">199.00 SAR</span>
+      </div>
+      <p class="font-body-md text-on-surface-variant leading-relaxed italic mx-auto max-w-lg mb-4 text-[15px] md:text-body-md">
+        A piece from the back with a strong flavor and moderate tenderness, highlighting Australian grazing quality.
+      </p>
+      <div class="flex justify-center items-center gap-4 md:gap-6 text-[11px] font-label-caps text-on-surface-variant uppercase tracking-widest border-t border-dotted border-secondary/30 pt-4 w-fit mx-auto">
+        <span>550 Cal</span>
+        <span class="opacity-30">/</span>
+        <span>Pro 47g</span>
+        <span class="opacity-30">/</span>
+        <span>Fat 37g</span>
+      </div>
+    </article>
+
+    <!-- Item 4 -->
+    <article class="group">
+      <div class="flex flex-col items-center mb-2">
+        <h3 class="font-headline-sm text-xl md:text-2xl uppercase mb-1">Australian Tenderloin</h3>
+        <span class="font-label-caps font-bold text-secondary text-xl md:text-lg">295.00 SAR</span>
+      </div>
+      <p class="font-body-md text-on-surface-variant leading-relaxed italic mx-auto max-w-lg mb-4 text-[15px] md:text-body-md">
+        Grass-fed Australian beef known for its extreme tenderness and lean profile, a classic choice for the connoisseur.
+      </p>
+      <div class="flex justify-center items-center gap-4 md:gap-6 text-[11px] font-label-caps text-on-surface-variant uppercase tracking-widest border-t border-dotted border-secondary/30 pt-4 w-fit mx-auto">
+        <span>620 Cal</span>
+        <span class="opacity-30">/</span>
+        <span>Pro 48g</span>
+        <span class="opacity-30">/</span>
+        <span>Fat 44g</span>
+      </div>
+    </article>
+
+    <!-- Item 5 -->
+    <article class="group">
+      <div class="flex flex-col items-center mb-2">
+        <h3 class="font-headline-sm text-xl md:text-2xl uppercase mb-1">Wagyu Steak 7+</h3>
+        <span class="font-label-caps font-bold text-secondary text-xl md:text-lg">485.00 SAR</span>
+      </div>
+      <p class="font-body-md text-on-surface-variant leading-relaxed italic mx-auto max-w-lg mb-4 text-[15px] md:text-body-md">
+        Highly marbled Wagyu with a marble score of 7+, providing a rich, buttery texture and intense depth of flavor.
+      </p>
+      <div class="flex justify-center items-center gap-4 md:gap-6 text-[11px] font-label-caps text-on-surface-variant uppercase tracking-widest border-t border-dotted border-secondary/30 pt-4 w-fit mx-auto">
+        <span>940 Cal</span>
+        <span class="opacity-30">/</span>
+        <span>Pro 42g</span>
+        <span class="opacity-30">/</span>
+        <span>Fat 82g</span>
+      </div>
+    </article>
+
+    <!-- Item 6 -->
+    <article class="group">
+      <div class="flex flex-col items-center mb-2">
+        <h3 class="font-headline-sm text-xl md:text-2xl uppercase mb-1">Wagyu Steak 9+</h3>
+        <span class="font-label-caps font-bold text-secondary text-xl md:text-lg">650.00 SAR</span>
+      </div>
+      <p class="font-body-md text-on-surface-variant leading-relaxed italic mx-auto max-w-lg mb-4 text-[15px] md:text-body-md">
+        The ultimate dining experience. Wagyu with an elite marble score of 9+, melting on the palate with unparalleled richness.
+      </p>
+      <div class="flex justify-center items-center gap-4 md:gap-6 text-[11px] font-label-caps text-on-surface-variant uppercase tracking-widest border-t border-dotted border-secondary/30 pt-4 w-fit mx-auto">
+        <span>1120 Cal</span>
+        <span class="opacity-30">/</span>
+        <span>Pro 40g</span>
+        <span class="opacity-30">/</span>
+        <span>Fat 105g</span>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Footer Callout -->
+  <div class="mt-16 md:mt-24 border-y-4 border-double border-primary py-10 md:py-12 px-6 md:px-8 max-w-3xl mx-auto">
+    <h3 class="font-headline-sm text-xl md:text-2xl mb-4 italic">The Lunch Tradition</h3>
+    <p class="font-body-md text-on-surface-variant leading-relaxed text-[15px] md:text-body-md">
+      "Quick lunches. Mid-shopping refuels. Built for the days when time's tight but your standards aren't. Our signature service, perfected since 1930. The original Café de Paris experience."
+    </p>
+  </div>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer class="w-full bg-surface-container-low border-t-4 border-double border-primary mt-stack-lg relative overflow-hidden mb-16 md:mb-0">
+  <div class="absolute inset-0 halftone-overlay pointer-events-none"></div>
+  <div class="relative z-10 max-w-full px-edge-margin py-stack-lg flex flex-col items-center text-center">
+    <span class="font-label-caps text-label-caps text-secondary tracking-[0.3em] uppercase mb-2">Est. 1930 — Genève</span>
+    <img src="Entrecote logo.png" alt="Entrecôte Café de Paris" class="w-auto max-w-[160px] h-auto mx-auto"/>
+    <div class="w-16 border-b-2 border-secondary my-4"></div>
+    <p class="font-body-md text-body-md italic text-on-surface-variant max-w-md">
+      One plate. One sauce. Ninety-five years of secret.
+    </p>
+    <div class="mt-stack-lg w-full max-w-3xl flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-label-caps text-[11px] tracking-widest uppercase text-primary">
+      <span>Al Faisaliah Tower</span>
+      <span class="text-secondary">◆</span>
+      <span>Lumiere Centre</span>
+      <span class="text-secondary">◆</span>
+      <span>Laysen Valley</span>
+      <span class="text-secondary">◆</span>
+      <span>AlUla</span>
+    </div>
+    <div class="mt-stack-md pt-stack-md w-full max-w-3xl border-t border-primary/20 flex flex-col sm:flex-row items-center justify-center gap-x-3 gap-y-1 font-caption text-[11px] text-on-surface-variant uppercase tracking-widest">
+      <span>Halal Certified</span>
+      <span class="hidden sm:inline text-primary/30">|</span>
+      <span>Prices incl. 15% VAT</span>
+      <span class="hidden sm:inline text-primary/30">|</span>
+      <span>© 1930 Entrecôte Café de Paris</span>
+    </div>
+  </div>
+  <div class="w-full h-6 halftone-overlay border-t border-primary/10"></div>
+</footer>
+
+<!-- ── Bottom tab bar (mobile only) ── -->
+<nav id="bottom-nav"
+     class="fixed bottom-0 left-0 right-0 z-50 flex md:hidden bg-background border-t-2 border-double border-primary">
+  <a href="main_course_gold.html"
+     class="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-secondary">
+    <span class="material-symbols-outlined text-[22px]" style="font-variation-settings:'FILL' 1,'wght' 400">restaurant</span>
+    <span class="font-label-caps text-[9px] tracking-wider uppercase font-bold">Mains</span>
+  </a>
+  <a href="#"
+     class="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-on-surface-variant hover:text-secondary transition-colors">
+    <span class="material-symbols-outlined text-[22px]">lunch_dining</span>
+    <span class="font-label-caps text-[9px] tracking-wider uppercase">Entrées</span>
+  </a>
+  <a href="#"
+     class="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-on-surface-variant hover:text-secondary transition-colors">
+    <span class="material-symbols-outlined text-[22px]">rice_bowl</span>
+    <span class="font-label-caps text-[9px] tracking-wider uppercase">Sides</span>
+  </a>
+  <a href="dessert.html"
+     class="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-on-surface-variant hover:text-secondary transition-colors">
+    <span class="material-symbols-outlined text-[22px]">cake</span>
+    <span class="font-label-caps text-[9px] tracking-wider uppercase">Desserts</span>
+  </a>
+  <a href="BEVERAGES.html"
+     class="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-on-surface-variant hover:text-secondary transition-colors">
+    <span class="material-symbols-outlined text-[22px]">local_cafe</span>
+    <span class="font-label-caps text-[9px] tracking-wider uppercase">Drinks</span>
+  </a>
+</nav>
+
+<script>
+  // Collapsing header on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 72) {
+      header.classList.add('header-scrolled');
+    } else {
+      header.classList.remove('header-scrolled');
+    }
+  }, { passive: true });
+
+  // Touch feedback
+  document.querySelectorAll('button, a').forEach(el => {
+    el.addEventListener('mousedown', () => el.classList.add('scale-95'));
+    el.addEventListener('mouseup',   () => el.classList.remove('scale-95'));
+    el.addEventListener('mouseleave',() => el.classList.remove('scale-95'));
+  });
+</script>
+</body></html>
